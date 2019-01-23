@@ -4,3 +4,4 @@
 .classpath
 *.properties
 .scannerwork
+.DS_Store
