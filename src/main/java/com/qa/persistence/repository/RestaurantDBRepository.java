@@ -26,9 +26,9 @@ import com.qa.util.JSONUtil;
 		private JSONUtil util;
 		
 		public String getAllRestaurants() {
-			Query query = manager.createQuery("SELECT c FROM Restaurant c");
-			Collection<Restaurant> Restaurants = (Collection<Restaurant>)query.getResultList();
-			return util.getJSONForObject(Restaurants);
+			Query query = manager.createQuery("SELECT r FROM Restaurant r");
+			Collection<Restaurant> restaurants = (Collection<Restaurant>)query.getResultList();
+			return util.getJSONForObject(restaurants);
 		}
 		
 		@Transactional(REQUIRED)
