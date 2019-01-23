@@ -3,6 +3,6 @@ INSERT INTO RESTAURANT (id, name, address, photo, comment, description) VALUES (
 INSERT INTO USER (id, username, email, password) VALUES (1, 'nightmayr', 'umayr23@gmail.com', 'password')
 INSERT INTO USER (id, username, email, password) VALUES (2, 'nutmayr', 'jason@email.com', 'password2')
 INSERT INTO COMMENT (id, userId, restaurantId, comment) VALUES (1, 1, 1, 'The food here is amazing!!!')
-INSERT INTO COMMENT (id, userId, restaurantId, comment) VALUES (1, 2, 1, 'I hate the food')
+INSERT INTO COMMENT (id, userId, restaurantId, comment) VALUES (2, 2, 1, 'I hate the food')
 
 
