@@ -1,4 +1,4 @@
-package com.qa.repository;
+package com.qa.persistence.repository;
 
 public interface CommentRepository {
 	
