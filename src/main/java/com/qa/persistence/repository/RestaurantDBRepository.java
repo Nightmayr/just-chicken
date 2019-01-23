@@ -32,24 +32,24 @@ import com.qa.util.JSONUtil;
 		}
 		
 		@Transactional(REQUIRED)
-		public String addRestaurant(String Restaurant) {
-			Restaurant aRestaurant = util.getObjectForJSON(Restaurant, Restaurant.class) ;
+		public String addRestaurant(String restaurant) {
+			Restaurant aRestaurant = util.getObjectForJSON(restaurant, Restaurant.class) ;
 			manager.persist(aRestaurant);
 			return "{\"message\": \"Restaurant sucessfully added\"}";
 		}
 		
 		@Transactional(REQUIRED)
 		public String deleteRestaurant(Long id) {
-			Restaurant Restaurant = findRestaurant(id);
-			manager.remove(Restaurant);
+			Restaurant restaurant = findRestaurant(id);
+			manager.remove(restaurant);
 			return "{\"message\": \"Restaurant sucessfully deleted\"}";
 		}
 		
 //		@Override
 		@Transactional(REQUIRED)
-		public String updateRestaurant(Long id, String Restaurant) {
+		public String updateRestaurant(Long id, String restaurant) {
 			Restaurant foundRestaurant = findRestaurant(id);
-			Restaurant jsonRestaurant = util.getObjectForJSON(Restaurant, Restaurant.class);
+			Restaurant jsonRestaurant = util.getObjectForJSON(restaurant, Restaurant.class);
 			if(foundRestaurant!=null) {
 				manager.remove(foundRestaurant);
 				manager.persist(jsonRestaurant);
