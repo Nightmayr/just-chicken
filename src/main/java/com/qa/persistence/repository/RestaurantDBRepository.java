@@ -58,6 +58,12 @@ import com.qa.util.JSONUtil;
 			return null;
 		}
 		
+		@Override
+		public String getRestaurant(Long id) {
+			Restaurant restaurant = findRestaurant(id);
+			return util.getJSONForObject(restaurant);
+		}
+		
 		private Restaurant findRestaurant(Long id) {
 			return manager.find(Restaurant.class, id);
 		}
@@ -77,6 +83,6 @@ import com.qa.util.JSONUtil;
 		public void setUtil(JSONUtil util) {
 			this.util = util;
 		}
-		
+
 
 }
