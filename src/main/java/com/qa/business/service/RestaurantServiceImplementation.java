@@ -30,5 +30,10 @@ public class RestaurantServiceImplementation implements RestaurantService {
 	public String updateRestaurant(Long id, String restaurant) {
 		return repo.updateRestaurant(id, restaurant);
 	}
+
+	@Override
+	public String getRestaurant(Long id) {
+		return repo.getRestaurant(id);
+	}
 	
 }
