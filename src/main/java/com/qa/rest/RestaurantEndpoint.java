@@ -45,7 +45,7 @@ public class RestaurantEndpoint {
 		return service.deleteRestaurant(id);
 	}
 	
-	@Path("/restaurant/{id}")
+	@Path("/getRestaurant/{id}")
 	@GET
 	@Produces({"application/json"})
 	public String getRestaurant(@PathParam("id") Long id) {
