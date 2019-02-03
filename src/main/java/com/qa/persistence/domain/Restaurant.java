@@ -1,9 +1,16 @@
 package com.qa.persistence.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Restaurant {
@@ -14,8 +21,14 @@ public class Restaurant {
 	private String name;
 	private String address;
 	private String photo;
-	private String comment;
+//	private String comment;
 	private String description;
+	@OneToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+    )
+    @JoinColumn(name = "classroomID")
+    private List<Comment> comment = new ArrayList<>();
 
 	public Restaurant() {
 		
@@ -49,13 +62,13 @@ public class Restaurant {
 		this.photo = photo;
 	}
 
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
+//	public String getComment() {
+//		return comment;
+//	}
+//
+//	public void setComment(String comment) {
+//		this.comment = comment;
+//	}
 
 	public String getDescription() {
 		return description;
