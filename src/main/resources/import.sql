@@ -4,5 +4,7 @@ INSERT INTO USER (id, username, email, password) VALUES (1, 'nightmayr', 'umayr2
 INSERT INTO USER (id, username, email, password) VALUES (2, 'nutmayr', 'jason@email.com', 'password2')
 INSERT INTO COMMENT (id, userId, restaurantId, comment) VALUES (1, 1, 1, 'The food here is amazing!!!')
 INSERT INTO COMMENT (id, userId, restaurantId, comment) VALUES (2, 2, 1, 'I hate the food')
+INSERT INTO COMMENT (id, userId, restaurantId, comment) VALUES (3, 2, 2, 'There was a fly in my sunset burger!! Never coming here again!')
+
 
 

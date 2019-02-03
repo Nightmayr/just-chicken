@@ -27,7 +27,7 @@ public class Restaurant {
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )
-    @JoinColumn(name = "classroomID")
+    @JoinColumn(name = "restaurantId")
     private List<Comment> comment = new ArrayList<>();
 
 	public Restaurant() {
