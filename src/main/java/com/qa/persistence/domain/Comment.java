@@ -1,5 +1,7 @@
 package com.qa.persistence.domain;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +18,8 @@ public class Comment {
 //	Foreign key from Restaurant table
 	private Long restaurantId;
 	private String comment;
+	private String author;
+//	private Date date;
 
 	
 	public Comment() {
@@ -49,5 +53,21 @@ public class Comment {
 	public void setRestaurantId(Long restaurantId) {
 		this.restaurantId = restaurantId;
 	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+//	public Date getDate() {
+//		return date;
+//	}
+//
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
 
 }
