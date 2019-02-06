@@ -13,6 +13,8 @@ public class UserServiceImplementation implements UserService {
 	@Inject
 	private JSONUtil util;
 	
+	String[] restrictedWords = new String[] {"idiot"};
+	
 	
 	public String getAllUsers() {
 		return repo.getAllUsers();
@@ -20,6 +22,13 @@ public class UserServiceImplementation implements UserService {
 
 	public String addUser(String user) {
 		User checkUser = util.getObjectForJSON(user, User.class);
+		for(int i=0; i<restrictedWords.length;i++) {
+			if(checkUser.getUsername().equals(restrictedWords[i])) {
+				return "Username invalid!";
+			} else if(checkUser.getUsername().length()<5 || checkUser.getUsername().length()>15) {
+				return "Username should be between 5 and 15 characters";
+			}
+		}
 		return repo.addUser(user);
 	}
 
