@@ -36,7 +36,7 @@ public class UserServiceImplementation implements UserService {
 				return "Username should be between 5 and 15 characters";
 			} else {
 				if(!(checkUser.getPassword().matches(numRegex) && checkUser.getPassword().matches(upperAlphaRegex) && checkUser.getPassword().matches(lowerAlphaRegex))){
-					return "Password should contain letters and numbers";
+					return "Password should contain an uppercase letter, lowercase letter and numbers";
 				} else if(checkUser.getPassword().length()<7 || checkUser.getPassword().length()>15) {
 					return "Password should be between 7 and 15 characters";
 				}
