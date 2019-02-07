@@ -13,7 +13,7 @@ public class UserServiceImplementation implements UserService {
 	@Inject
 	private JSONUtil util;
 	
-	String[] restrictedWords = new String[] {"idiot"};
+	String[] restrictedWords = new String[] {"idiot", "stupid" };
 	
 	
 	public String getAllUsers() {
@@ -22,11 +22,20 @@ public class UserServiceImplementation implements UserService {
 
 	public String addUser(String user) {
 		User checkUser = util.getObjectForJSON(user, User.class);
+		String numRegex   = ".*[0-9].*";
+		String alphaRegex = ".*[A-Z].*";
+
 		for(int i=0; i<restrictedWords.length;i++) {
 			if(checkUser.getUsername().equals(restrictedWords[i])) {
 				return "Username invalid!";
 			} else if(checkUser.getUsername().length()<5 || checkUser.getUsername().length()>15) {
 				return "Username should be between 5 and 15 characters";
+			} else {
+				if(!(checkUser.getPassword().matches(numRegex) && checkUser.getPassword().matches(alphaRegex))){
+					return "Password should contain letters and numbers";
+				} else if(checkUser.getPassword().length()<5 || checkUser.getPassword().length()>15) {
+					return "Password should be between 5 and 15 characters";
+				}
 			}
 		}
 		return repo.addUser(user);
