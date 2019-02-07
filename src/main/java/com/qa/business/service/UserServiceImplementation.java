@@ -33,8 +33,8 @@ public class UserServiceImplementation implements UserService {
 			} else {
 				if(!(checkUser.getPassword().matches(numRegex) && checkUser.getPassword().matches(alphaRegex))){
 					return "Password should contain letters and numbers";
-				} else if(checkUser.getPassword().length()<5 || checkUser.getPassword().length()>15) {
-					return "Password should be between 5 and 15 characters";
+				} else if(checkUser.getPassword().length()<7 || checkUser.getPassword().length()>15) {
+					return "Password should be between 7 and 15 characters";
 				}
 			}
 		}
