@@ -23,15 +23,19 @@ public class UserServiceImplementation implements UserService {
 	public String addUser(String user) {
 		User checkUser = util.getObjectForJSON(user, User.class);
 		String numRegex   = ".*[0-9].*";
-		String alphaRegex = ".*[A-Z].*";
+		String upperAlphaRegex = ".*[A-Z].*";
+		String lowerAlphaRegex = ".*[a-z].*";
 
+		
+//		User validation on username and password
+//		(regex1|regex2|regex3)
 		for(int i=0; i<restrictedWords.length;i++) {
 			if(checkUser.getUsername().equals(restrictedWords[i])) {
 				return "Username invalid!";
 			} else if(checkUser.getUsername().length()<5 || checkUser.getUsername().length()>15) {
 				return "Username should be between 5 and 15 characters";
 			} else {
-				if(!(checkUser.getPassword().matches(numRegex) && checkUser.getPassword().matches(alphaRegex))){
+				if(!(checkUser.getPassword().matches(numRegex) && checkUser.getPassword().matches(upperAlphaRegex) && checkUser.getPassword().matches(lowerAlphaRegex))){
 					return "Password should contain letters and numbers";
 				} else if(checkUser.getPassword().length()<7 || checkUser.getPassword().length()>15) {
 					return "Password should be between 7 and 15 characters";
